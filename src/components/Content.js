@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import ActivityItem from './ActivityItem';
 
 class Content extends Component{
   render(){
@@ -12,15 +13,9 @@ class Content extends Component{
 
         {activities.map((activity) =>{
           return(
-            <div className="item">
-              <div className="avatar">
-                <img src={activity.user.avatar}/>
-                  {activity.user.name}
-              </div>
-              <span className="time">{activity.timestamp}</span>
-              <p>{activity.text}</p>
-              <div className="commentCount">{activity.comments.length}</div>
-            </div>
+            <ActivityItem
+              activity={activity}
+            />
           );
         })}
 
