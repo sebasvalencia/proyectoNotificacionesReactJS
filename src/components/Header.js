@@ -2,8 +2,32 @@ import React, {Component} from 'react';
 //import './App.css';
 
 class Header extends Component{
-  render(){
-    return(
+
+constructor(props){
+  super(props);
+
+  this.state = {
+    searchVisible: false
+  }
+}
+
+//toggle visibility when run on the state
+showSearch(){
+  this.setState({
+    searchVisible: !this.state.searchVisible
+  });
+}
+
+render(){
+  //Classes to add to the <input />
+  let seearchInputClasses = ["searchInput"];
+
+  //Update the class array if the state is visible
+  if(this.state.searchVisible){
+    seearchInputClasses.push("active");
+  }
+
+  return(
       <div className="header">
         <div className="fa fa-more"></div>
 
@@ -11,11 +35,13 @@ class Header extends Component{
 
         <input
           type="text"
-          className="searchInput"
+          className={seearchInputClasses.join(' ')}
           placeholder="Search ..."
         />
 
-        <div className="fa fa-search searchIncon"></div>
+        <div
+          onClick={this.showSearch.bind(this)}
+          className="fa fa-search searchIncon"></div>
 
       </div>
     );
