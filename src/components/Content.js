@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import ActivityItem from './ActivityItem';
 
 class Content extends Component{
+
+  componentWillMount() {
+    this.setState({activities: this.props});
+  }
+
   render(){
 
     const {activities} = this.props;
