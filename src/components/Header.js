@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-//import './App.css';
+import PropsTypes from 'prop-types';
+
 
 class Header extends Component{
 
@@ -46,6 +47,10 @@ render(){
       </div>
     );
   }
+}
+
+Header.propsTypes={
+  title: PropsTypes.string
 }
 
 export default Header;

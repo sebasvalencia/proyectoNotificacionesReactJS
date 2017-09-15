@@ -4,6 +4,13 @@ import ActivityItem from './ActivityItem';
 
 class Content extends Component{
 
+  constructor(props){
+    super(props);
+    this.state = {
+      activities: []
+    }
+  }
+
   componentWillMount() {
     this.setState({activities: this.props});
   }
